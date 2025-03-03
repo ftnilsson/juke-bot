@@ -39,7 +39,7 @@ jobs:
      #   run: npm test
 
       - name: Generate Release Name
-        uses: ftnilsson/generate-release-name-action@3.0.3
+        uses: ftnilsson/generate-release-name-action@3.0.4
         id: release-name  # Add ID to reference the output
         with:
           length: 2
