@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Add explicit permissions (security best practice)
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Updated to v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4  # Updated to v4
+        with:
+          node-version: '16'
+          cache: 'npm'  # Add caching for faster builds
+
+      - name: Install dependencies
+        run: npm ci  # Use 'ci' instead of 'install' for more reliable builds
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run build
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Generate Release Name
+        uses: ftnilsson/generate-release-name-action@3.0.3
+        id: release-name  # Add ID to reference the output
+        with:
+          length: 2
+          
+      - name: Display generated release name
+        run: echo "Generated release name is ${{ steps.release-name.outputs.release-name }}"
