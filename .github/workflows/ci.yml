@@ -39,13 +39,13 @@ jobs:
      #   run: npm test
 
       - name: Generate Release Name
-        uses: ftnilsson/generate-release-name-action@1.0.2
+        uses: ftnilsson/generate-release-name-action@1.0.3
         id: release-name  # Add ID to reference the output
         with:
           delimiter: '-'
           length: 3
-          useToken: false
-          capitalize: false
+          useToken: 'true'
+          capitalize: 'false'
           
       - name: Display generated release name
         run: echo "Generated release name is ${{ steps.release-name.outputs.release-name }}"
