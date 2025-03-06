@@ -44,7 +44,7 @@ jobs:
         with:
           delimiter: '_'
           length: '2'
-          useToken: 'true'
+          useToken: 'false'
           capitalize: 'false'
           debug: 'true'
           
