@@ -43,7 +43,7 @@ jobs:
         id: release-name  # Add ID to reference the output
         with:
           delimiter: '-'
-          length: 2
+          length: 3
           useToken: false
           capitalize: false
           
