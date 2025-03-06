@@ -39,7 +39,7 @@ jobs:
      #   run: npm test
 
       - name: Generate Release Name
-        uses: ftnilsson/generate-release-name-action@3.0.9
+        uses: ftnilsson/generate-release-name-action@1.0.0
         id: release-name  # Add ID to reference the output
         with:
           delimiter: '_'
